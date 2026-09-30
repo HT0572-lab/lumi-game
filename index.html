@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07101b" />
+  <title>ルミと名もなき願い</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brand">ルミと名もなき願い</div>
+      <div id="progress" class="progress">1 / 31</div>
+      <div class="toolbar">
+        <button id="inventoryBtn" class="icon-btn hidden" type="button">命のカード</button>
+        <div class="zoom-controls" aria-label="表示倍率">
+          <button id="zoomOutBtn" class="icon-btn zoom-step" type="button" aria-label="縮小">−</button>
+          <button id="zoomValueBtn" class="icon-btn zoom-value" type="button" title="100%に戻す">100%</button>
+          <button id="zoomInBtn" class="icon-btn zoom-step" type="button" aria-label="拡大">＋</button>
+        </div>
+        <button id="resetBtn" class="icon-btn subtle" type="button">最初から</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="stage-wrap">
+        <div id="stage" class="stage" aria-live="polite">
+          <img id="slideImage" class="slide-image" alt="ゲーム画面" draggable="false" />
+          <div id="startOverlay" class="start-overlay hidden">
+            <button id="startBtn" class="primary huge" type="button">物語を始める</button>
+            <div class="start-note">音は使用しません / 横画面推奨</div>
+          </div>
+        </div>
+
+        <section id="puzzlePanel" class="puzzle-panel hidden"></section>
+
+        <nav class="nav">
+          <button id="prevBtn" class="nav-btn" type="button">← 戻る</button>
+          <div id="status" class="status"></div>
+          <button id="nextBtn" class="nav-btn primary" type="button">次へ →</button>
+        </nav>
+      </section>
+    </main>
+  </div>
+
+  <div id="inventoryModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="命のカード">
+    <div class="modal-card inventory-card">
+      <div class="modal-head">
+        <h2>命のカード</h2>
+        <button class="close-btn" data-close="inventoryModal" type="button">×</button>
+      </div>
+      <div id="inventoryGrid" class="inventory-grid"></div>
+    </div>
+  </div>
+
+  <div id="pathModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="鎖の終着点">
+    <div class="modal-card path-card">
+      <div class="modal-head">
+        <div>
+          <h2>鎖の終着点</h2>
+          <p class="muted">SからGまで、数字をすべて満たす一本の鎖を通す。</p>
+        </div>
+        <button class="close-btn" data-close="pathModal" type="button">×</button>
+      </div>
+      <div class="path-layout">
+        <div id="pathGrid" class="path-grid"></div>
+        <div class="path-help">
+          <p>セルを順にクリックして鎖を伸ばす。</p>
+          <p>選択済みのセルをクリックすると、そこまで戻せる。</p>
+          <div id="pathStatus" class="path-status"></div>
+          <div class="path-actions">
+            <button id="pathUndoBtn" class="secondary" type="button">← 一手戻る</button>
+            <button id="pathResetBtn" class="secondary" type="button">最初から置き直す</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cardSelectModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="命のカードを選ぶ">
+    <div class="modal-card card-select-card">
+      <div class="modal-head">
+        <div>
+          <h2 id="cardSelectTitle">命のカードを選ぶ</h2>
+          <p id="cardSelectInstruction" class="muted"></p>
+        </div>
+        <button class="close-btn" data-close="cardSelectModal" type="button">×</button>
+      </div>
+      <div id="cardSelectSlots" class="card-select-slots"></div>
+      <div id="cardSelectGrid" class="card-select-grid"></div>
+      <div class="card-select-actions">
+        <button id="cardSelectClearBtn" class="secondary" type="button">選び直す</button>
+        <button id="cardSelectConfirmBtn" class="primary" type="button">決定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
