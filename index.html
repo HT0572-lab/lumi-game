@@ -51,7 +51,7 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
 .puzzle-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .answer-input{flex:1;min-width:220px;background:#06101a;border:1px solid #6d7f93;border-radius:9px;color:white;padding:11px 12px;outline:none}
 .answer-input:focus{border-color:#d9b76f;box-shadow:0 0 0 3px #d9b76f22}
-.hint{margin-top:10px;color:#d5c8ad;background:#241f17aa;border-left:3px solid #b59554;padding:9px 12px;line-height:1.65}
+.hint{margin-top:10px;color:#d5c8ad;background:#241f17aa;border-left:3px solid #b59554;padding:9px 12px;line-height:1.65;white-space:pre-line}.hint.big-hint{background:#1c2330cc;border-left-color:#8fa9c7;color:#e2e7ee}
 .card-puzzle{display:grid;grid-template-columns:1fr;gap:13px}
 .card-choice-grid{display:grid;grid-template-columns:repeat(9,minmax(70px,1fr));gap:7px}
 .card-choice{position:relative;border:2px solid transparent;background:#0b1521;border-radius:8px;padding:3px;overflow:hidden;transition:.16s}
@@ -254,41 +254,47 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
       title:'Chapter 1　崩れた灯路',
       prompt:'欠けた一字は、横へ歩む命に託せ。石板を読み解き、導かれる英単語を入力せよ。',
       answers:['GLYCOLYSIS'],
-      hint:'石板の文章は、同じ「流れ」の中で起こる出来事を示している。欠けた場所には、文字だけでなく「どの命を託すか」も手掛かりになる。'
+      hint:'石板の文章は、解糖系で起こる反応を別の言葉で表している。\n金の灯＝ATP、灰の灯＝ADP、印＝リン酸基。\nこの対応を使って、それぞれの石板がどの反応を示すか考えよう。',
+      bigHint:'解糖系は、グルコースからピルビン酸へ向かって順番に進む。\n石板をその順に並べると、下のアルファベットも意味のある並びになる。\n途中で1文字だけ足りない場所がある。そこには、手元の命のカードを使う。'
     },
     13: {
       type:'word',
       title:'Chapter 1　流れを縛る三つの門',
       prompt:'三つの門をたどって文字を拾い、道の外に残された石板で欠けた文字を補え。導かれる7文字を入力せよ。',
       answers:['GLUCOSE'],
-      hint:'三つの門に刻まれたローマ数字を、GLYCOLYSISの文字位置として読む。まず5文字を拾い、道の外の石板で欠けた文字を補う。'
+      hint:'「流れを縛る三つの門」は、解糖系の3つの律速反応。\nその反応に対応する石板を探そう。',
+      bigHint:'3つの律速反応の石板にはローマ数字が刻まれている。\nその数字は、すでに得た GLYCOLYSIS の何文字目を見るかを示している。\n拾った文字だけでは完成しない。\n流れの外に残された U と E の石板も読む必要がある。'
     },
     18: {
       type:'cards',
       title:'Chapter 2　鎖の祭壇',
       prompt:'五つの命を選び、左から正しい順番に並べる。',
       correct:['wolf','fox','snake','bird','fish'],
-      hint:'「脚に頼らぬ命」は中央。そこを基準に、左側と右側の条件を分けて考える。'
+      hint:'アルファベットではなく、まず命の位置関係を解く。\n「中央」「すぐ左」「間に一つ」を図にして考えよう。',
+      bigHint:'5つの場所を横に並べて考える。\nまず「中央」に来る命を決めると、他の条件がかなり絞れる。\n位置が全部決まったら、その順番でカードのアルファベットを左から読む。'
     },
     21: {
       type:'word',
       title:'Chapter 2　鎖を拒む境界',
       prompt:'残された記録と、かつて得た異国の言葉から導かれる語を入力せよ。',
       answers:['カルニチン','CARNITINE'],
-      hint:'祭壇で完成した5文字の英単語を思い出す。記録を正しい順に戻したあと、その5文字の順序を使う。'
+      hint:'左ページの5つの記録は、長鎖脂肪酸がミトコンドリア内膜を越える過程。\nまず、生化学的に正しい順へ並べ直そう。',
+      bigHint:'5つの記録を並べたら、前に得た CHAIN を上から1文字ずつ対応させる。\nノートの「異国の文字には、それぞれ生まれた順がある」は、A=1、B=2、C=3……と考える手掛かり。\nその数字を使って、対応する記録から文字を拾う。\n最後に、拾った文字をもう一度「生まれた順」に並べ直す。'
     },
     26: {
       type:'path',
       title:'Chapter 2　鎖の終着点',
       prompt:'SからGまで、すべての数字を同時に満たす一本の鎖を通す。',
-      hint:'一つの列は8。数字が8の列は、黒マス以外をほぼすべて通ることになる。'
+      hint:'左の数字は各行、上の数字は各列を、鎖が何マス通るかを示している。\nSからGまで、一本の鎖をつなごう。',
+      bigHint:'鎖は上下左右にしか進めず、黒いマスと同じマスの再利用はできない。\n途中で、その行や列の数字を超えてしまう進み方は不正解。\n「ここを通ると、この行とこの列の両方が1増える」と数えながら進めると絞りやすい。'
     },
     29: {
       type:'word',
       title:'Chapter 2　鎖の終着点',
       prompt:'同じ印を二つで一つとし、ノートから導かれる言葉を入力せよ。',
       answers:['FATTYACID','脂肪酸'],
-      hint:'同じ印の二つの位置から「段」と「列」を決める。最後は、ノート下部に並んだ印の順に読む。'
+      hint:'鎖を完成させたあと、鎖が通らなかった石だけを見てみよう。\n同じ印が二つずつ残っている。',
+      bigHint:'同じ印の2枚を一組として扱う。\nその2枚の位置から行と列を1つずつ取り出して座標を作る。\n座標をノートの文字表で読むと、一組につき1文字得られる。\n最後は、ノートにある印の並び順が文字を並べる順番になる。'
     }
   };
 
@@ -431,8 +437,10 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
     const submit=document.createElement('button'); submit.className='primary'; submit.type='button';
     submit.textContent=solved(n)?'正解済み':'確定'; submit.disabled=solved(n);
     const hintBtn=document.createElement('button'); hintBtn.className='secondary'; hintBtn.type='button'; hintBtn.textContent='ヒント';
-    row.append(input,submit,hintBtn); puzzlePanel.appendChild(row);
+    const bigHintBtn=document.createElement('button'); bigHintBtn.className='secondary'; bigHintBtn.type='button'; bigHintBtn.textContent='大ヒント';
+    row.append(input,submit,hintBtn,bigHintBtn); puzzlePanel.appendChild(row);
     const hint=document.createElement('div'); hint.className='hint hidden'; hint.textContent=p.hint; puzzlePanel.appendChild(hint);
+    const bigHint=document.createElement('div'); bigHint.className='hint big-hint hidden'; bigHint.textContent=p.bigHint; puzzlePanel.appendChild(bigHint);
     const check=()=>{
       if(n===11){
         const c=cards.find(x=>x.id===state.chapter1Card);
@@ -447,6 +455,7 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
     submit.addEventListener('click',check);
     input.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
     hintBtn.addEventListener('click',()=>hint.classList.toggle('hidden'));
+    bigHintBtn.addEventListener('click',()=>bigHint.classList.toggle('hidden'));
     if(solved(n)) setStatus('この謎は解決済み。','ok');
   }
 
@@ -468,8 +477,10 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
     const choose=document.createElement('button'); choose.className='secondary'; choose.type='button'; choose.textContent='命のカードを選ぶ'; choose.disabled=solved(n);
     const submit=document.createElement('button'); submit.className='primary'; submit.type='button'; submit.textContent=solved(n)?'正解済み':'この順で供える'; submit.disabled=solved(n);
     const hintBtn=document.createElement('button'); hintBtn.className='secondary'; hintBtn.type='button'; hintBtn.textContent='ヒント';
-    actions.append(choose,submit,hintBtn); wrap.appendChild(actions);
+    const bigHintBtn=document.createElement('button'); bigHintBtn.className='secondary'; bigHintBtn.type='button'; bigHintBtn.textContent='大ヒント';
+    actions.append(choose,submit,hintBtn,bigHintBtn); wrap.appendChild(actions);
     const hint=document.createElement('div'); hint.className='hint hidden'; hint.textContent=p.hint; wrap.appendChild(hint);
+    const bigHint=document.createElement('div'); bigHint.className='hint big-hint hidden'; bigHint.textContent=p.bigHint; wrap.appendChild(bigHint);
 
     choose.addEventListener('click',()=>openCardSelector('five'));
     submit.addEventListener('click',()=>{
@@ -479,6 +490,7 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
       else setStatus('順番が違う。ノートの条件をもう一度確認。','error');
     });
     hintBtn.addEventListener('click',()=>hint.classList.toggle('hidden'));
+    bigHintBtn.addEventListener('click',()=>bigHint.classList.toggle('hidden'));
     puzzlePanel.appendChild(wrap);
     if(solved(n)) setStatus('五つの命は正しい順に戻された。','ok');
   }
@@ -487,10 +499,13 @@ button:disabled{opacity:.35;cursor:not-allowed;filter:none}
     const row=document.createElement('div'); row.className='puzzle-row';
     const open=document.createElement('button'); open.className='primary'; open.type='button'; open.textContent=solved(n)?'盤面を確認する':'鎖を配置する';
     const hintBtn=document.createElement('button'); hintBtn.className='secondary'; hintBtn.type='button'; hintBtn.textContent='ヒント';
-    row.append(open,hintBtn); puzzlePanel.appendChild(row);
+    const bigHintBtn=document.createElement('button'); bigHintBtn.className='secondary'; bigHintBtn.type='button'; bigHintBtn.textContent='大ヒント';
+    row.append(open,hintBtn,bigHintBtn); puzzlePanel.appendChild(row);
     const hint=document.createElement('div'); hint.className='hint hidden'; hint.textContent=p.hint; puzzlePanel.appendChild(hint);
+    const bigHint=document.createElement('div'); bigHint.className='hint big-hint hidden'; bigHint.textContent=p.bigHint; puzzlePanel.appendChild(bigHint);
     open.addEventListener('click',()=>{renderPathGrid();openModal('pathModal');});
     hintBtn.addEventListener('click',()=>hint.classList.toggle('hidden'));
+    bigHintBtn.addEventListener('click',()=>bigHint.classList.toggle('hidden'));
     if(solved(n)) setStatus('鎖はSからGまで正しくつながっている。','ok');
   }
 
